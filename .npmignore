@@ -1,0 +1,6 @@
+.npmignore
+.github/
+test.js
+build.js
+script.js
+index.html

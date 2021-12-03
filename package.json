@@ -1,0 +1,29 @@
+{
+  "name": "@aspiesoft/retro-random",
+  "version": "1.0.0",
+  "description": "A random number generator for an old school video game feel.",
+  "license": "MIT",
+  "author": "AspieSoft",
+  "main": "script.min.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aspiesoft/retro-random.git"
+  },
+  "keywords": [
+    "random",
+    "number",
+    "retro",
+    "old",
+    "game",
+    "js",
+    "javascript",
+    "nodejs"
+  ],
+  "devDependencies": {
+    "@aspiesoft/miniforge-js": "^1.0.0"
+  }
+}
