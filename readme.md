@@ -1,12 +1,12 @@
 # Retro Random
 
 ![npm version](https://img.shields.io/npm/v/@aspiesoft/retro-random)
-![GitHub top language](https://img.shields.io/github/languages/top/aspiesoft/retro-random)
-![GitHub license](https://img.shields.io/github/license/aspiesoft/retro-random)
+![GitHub top language](https://img.shields.io/github/languages/top/aspiesoft/retro-random-number)
+![GitHub license](https://img.shields.io/github/license/aspiesoft/retro-random-number)
 
 ![npm downloads](https://img.shields.io/npm/dw/@aspiesoft/retro-random)
 ![npm downloads](https://img.shields.io/npm/dm/@aspiesoft/retro-random)
-![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/aspiesoft/retro-random)
+![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/aspiesoft/retro-random-number)
 
 [![donate](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-blue)](https://buymeacoffee.aspiesoft.com/)
 
@@ -33,7 +33,7 @@ npm install @aspiesoft/retro-random
 ### cdn
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/AspieSoft/retro-random@1.0.0/script.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AspieSoft/retro-random-number@1.0.1/script.min.js"></script>
 ```
 
 ## Usage

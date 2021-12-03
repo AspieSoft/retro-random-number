@@ -1,6 +1,6 @@
 {
   "name": "@aspiesoft/retro-random",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A random number generator for an old school video game feel.",
   "license": "MIT",
   "author": "AspieSoft",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aspiesoft/retro-random.git"
+    "url": "git://github.com/aspiesoft/retro-random-number.git"
   },
   "keywords": [
     "random",
