@@ -14,9 +14,9 @@
 
 For old, 8-bit video games, random numbers were a bit more difficult for computers, and the randomness was somewhat predictable.
 
-This module attempts to generate predictable results, while still being unique.
-
 If your looking to build a video game, and want that old retro feel, this random number generator can help.
+
+This module attempts to generate predictable results, while still being unique.
 
 This random number generator also allows seeds. By default, the random seed is the current time in milliseconds.
 The seed can be used to generate consistant results for a game level, but the output will still be slightely different.
