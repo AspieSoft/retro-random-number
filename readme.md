@@ -35,7 +35,7 @@ npm install retro-random
 ### cdn
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/AspieSoft/retro-random-number@1.0.1/script.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AspieSoft/retro-random-number@1.2.0/script.min.js"></script>
 ```
 
 ## Usage
