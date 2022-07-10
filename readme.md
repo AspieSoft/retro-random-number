@@ -1,11 +1,11 @@
 # Retro Random
 
-![npm version](https://img.shields.io/npm/v/@aspiesoft/retro-random)
+![npm version](https://img.shields.io/npm/v/retro-random)
 ![GitHub top language](https://img.shields.io/github/languages/top/aspiesoft/retro-random-number)
 ![GitHub license](https://img.shields.io/github/license/aspiesoft/retro-random-number)
 
-![npm downloads](https://img.shields.io/npm/dw/@aspiesoft/retro-random)
-![npm downloads](https://img.shields.io/npm/dm/@aspiesoft/retro-random)
+![npm downloads](https://img.shields.io/npm/dw/retro-random)
+![npm downloads](https://img.shields.io/npm/dm/retro-random)
 ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/aspiesoft/retro-random-number)
 
 [![donate](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-blue)](https://buymeacoffee.aspiesoft.com/)
@@ -29,7 +29,7 @@ There should be about an 82% chance of getting the same number on the first call
 ### node.js
 
 ```shell script
-npm install @aspiesoft/retro-random
+npm install retro-random
 ```
 
 ### cdn
@@ -43,11 +43,13 @@ npm install @aspiesoft/retro-random
 ```JavaScript
 
 // require only if using node.js
-const RetroRandom = require('@aspiesoft/retro-random');
+const RetroRandom = require('retro-random');
 
 let r = RetroRandom(); // create a new instance with a random time based seed
 
 let r = RetroRandom(1234567890); // create a new instance with a specific seed
+
+let r = RetroRandom(1234567890, true); // create a new instance with consistant results when recreated from the same seed
 
 r(0, 1000); // pick a random number between 0 and 1000
 

@@ -1,5 +1,5 @@
 ; const RetroRandom = (function() {
-  return function(seed) {
+  return function(seed, consistant = false) {
     // ensure seed is 10 digits
     let time = new Date().getTime().toString();
     if(seed) {
@@ -17,10 +17,18 @@
     seed = seed.split('').map(n => Number(n));
 
 
-    function genRand(size) {
-      let rand = Math.floor(Math.random() * Math.pow(10, size)).toString();
+    function genRand(size, offset = 0) {
+      let rand;
+      if(!consistant){
+        rand = Math.floor(Math.random() * Math.pow(10, size + offset)).toString();
+      }else{
+        rand = Math.floor(Number('0.' + seed.join('')) * Math.pow(10, size + offset)).toString();
+      }
       while(rand.length < size) {
         rand = '0' + rand;
+      }
+      while(rand.length > size) {
+        rand = rand.replace(/^[0-9]/, '');
       }
       return rand;
     }
@@ -29,11 +37,20 @@
     let randSize = 3;
     // let rand = Math.min(randSize - 1, Math.floor(Math.random() * 10));
     let rand = 0;
-    let rand1 = genRand(randSize);
-    let rand2 = genRand(randSize);
-    let rand3 = genRand(randSize * 2);
-    let rand4 = genRand(randSize * 2);
-    let rand5 = genRand(randSize * 2);
+    let rand1, rand2, rand3, rand4, rand5;
+    if(!consistant){
+      rand1 = genRand(randSize);
+      rand2 = genRand(randSize);
+      rand3 = genRand(randSize * 2);
+      rand4 = genRand(randSize * 2);
+      rand5 = genRand(randSize * 2);
+    }else{
+      rand1 = genRand(randSize, 1);
+      rand2 = genRand(randSize, 3);
+      rand3 = genRand(randSize * 2, 2);
+      rand4 = genRand(randSize * 2, 4);
+      rand5 = genRand(randSize * 2, 5);
+    }
 
     // let calls = Math.floor(Math.random() * 10);
     let calls = 0;
@@ -41,11 +58,26 @@
     function nextInt(size) {
       calls++;
       if(calls > 25) {
-        rand1 = genRand(randSize);
+        /* rand1 = genRand(randSize);
         rand2 = genRand(randSize);
         rand3 = genRand(randSize * 2);
         rand4 = genRand(randSize * 2);
-        rand5 = genRand(randSize * 2);
+        rand5 = genRand(randSize * 2); */
+
+        if(!consistant){
+          rand1 = genRand(randSize);
+          rand2 = genRand(randSize);
+          rand3 = genRand(randSize * 2);
+          rand4 = genRand(randSize * 2);
+          rand5 = genRand(randSize * 2);
+        }else{
+          rand1 = genRand(randSize, 1);
+          rand2 = genRand(randSize, 3);
+          rand3 = genRand(randSize * 2, 2);
+          rand4 = genRand(randSize * 2, 4);
+          rand5 = genRand(randSize * 2, 5);
+        }
+
         // calls = Math.floor(Math.random() * 10);
         calls = 0;
       }
@@ -180,6 +212,10 @@
         }
       } else if(n === 2) {
         res *= -1;
+      }
+
+      if(min < res.toString().length && rand4[rand] % seed[rand] < 2){
+        res = Number(res.toString().replace(/^[0-9]/, ''));
       }
 
       return res;
