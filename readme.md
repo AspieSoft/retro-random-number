@@ -8,7 +8,7 @@
 ![npm downloads](https://img.shields.io/npm/dm/retro-random)
 ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/aspiesoft/retro-random-number)
 
-[![donate](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-blue)](https://buymeacoffee.aspiesoft.com/)
+[![donate](https://img.shields.io/badge/buy%20me%20a%20coffee-square-blue)](https://buymeacoffee.aspiesoft.com/)
 
 ## A random number generator for an old school video game feel
 
@@ -45,11 +45,26 @@ npm install retro-random
 // require only if using node.js
 const RetroRandom = require('retro-random');
 
-let r = RetroRandom(); // create a new instance with a random time based seed
 
-let r = RetroRandom(1234567890); // create a new instance with a specific seed
+// create a new instance with a random time based seed
+let r = RetroRandom();
 
-let r = RetroRandom(1234567890, true); // create a new instance with consistant results when recreated from the same seed
+// create a new instance with a specific seed
+let r = RetroRandom(1234567890);
+
+// create a new instance with consistant results when recreated from the same seed
+let r = RetroRandom(1234567890, true);
+
+// new instance that uses the time the function was called in place of Math.random()
+let r = RetroRandom(1234567890, 1);
+
+// divide time by 1000 (base on time in seconds instead of milliseconds)
+let r = RetroRandom(1234567890, 1000);
+
+// use a preset start time in place of the time the function was called
+let r = RetroRandom(1234567890, 5, 1658107066981 /* Date.now() */);
+// this last example can also return consistant results when recreated with the same data
+
 
 r(0, 1000); // pick a random number between 0 and 1000
 
@@ -65,5 +80,9 @@ r(0, 1, 3, 3); // pick a random number between 0 and 1 with exactly a 3 digit de
 r.origSeed() // return the original seed (output: 1234567890)
 
 r.seed() // return a new seed that starts where you left off (output may very)
+
+r.startTime() // return the time passed in the 3rd param on init or the time the function was initialized
+
+r.callTime() // return the time thr function was initialized
 
 ```

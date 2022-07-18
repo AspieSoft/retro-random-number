@@ -11,6 +11,7 @@ let m2 = 0;
 let s = 0;
 
 let r = RetroRandom(1234567890);
+
 for(let i = 0; i < 1000; i++) {
   let seed = r.seed();
   let n = r(0, 1000);
