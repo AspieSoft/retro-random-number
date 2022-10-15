@@ -1,22 +1,24 @@
 name: Publish
 
 on:
-  workflow_dispatch
+  release:
+    types: [created]
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: npm install -g npm
       - run: npm ci
-      - run: node test.js
+      - run: node test/run.js --github
 
   publish-npm:
     needs: test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -24,13 +26,14 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
           scope: aspiesoft
+      - run: npm install -g npm
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
     needs: test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -38,6 +41,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: aspiesoft
+      - run: npm install -g npm
       - run: npm publish
         env:
           AUTHOR_EMAIL: aspiesoftweb@gmail.com
@@ -46,7 +50,7 @@ jobs:
 
   publish-npm-noscope:
     needs: test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -57,6 +61,7 @@ jobs:
         run: |
           sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package.json
           sed -i 's/"name":\s"@aspiesoft\//"name":"/g' package-lock.json
+      - run: npm install -g npm
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
